@@ -2,9 +2,14 @@ input{
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
+    text-align: center;
 }
 
 body{
     background-color: #818182;
+}
+
+#searchbtn{
+    background-color: #818182;
+    color: white;
 }

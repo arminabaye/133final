@@ -13,29 +13,32 @@
 <body>
 
 
-<h1 class="text-center pt-5 pb-4">Title</h1>
 <!-- Search form -->
-<div class="container pt-lg-4">
+<div class="jumbotron pt-lg-4 mt-5">
+    <h1 class="text-center display-4 pt-5 pb-4">DJ Data</h1>
     <div class="input-group">
-        <input class="form-control form-control-lg w-50" type="text" placeholder="Enter a song..." aria-label="Search">
-        <button class="btn btn-light btn-lg ml-2" type="submit">Search</button>
+        <input class="form-control form-control-lg w-25" type="text" placeholder="Get information about a song here:" aria-label="Search">
     </div>
+    <div class="d-flex justify-content-center mt-4">
+        <button class="btn btn-primary btn-light btn-lg" type="submit" id="searchbtn">Search</button>
+    </div>
+
 </div>
 
 <div class="container-fluid pt-5 w-75">
-    <!-- row with two columns showing respective data -->
     <div class="row pl-2">
             <!--Quick Data of Song (BPM, Length, etc) displayed as a table -->
-        <table class="table table-dark table-striped table-bordered table-hover">
+        <table class="table table-light table-striped table-bordered table-hover">
             <thead>
                 <tr>
                     <th scope="col">Song Name</th>
                     <th scope="col">Beats Per Minute</th>
                     <th scope="col">Song Length</th>
                     <th scope="col">Key</th>
-                    <!-- Key from API presented as type Int, use Pitch class notation to convert to musical key -->
+                    <!-- Key from API presented as type Int, use Pitch class notation to convert to musical key (str)-->
                     <th scope="col">Artist</th>
                     <th scope="col">More Data</th>
+                    <!-- More data button with href to MoreInfoPage -->
                 </tr>
             </thead>
             <!-- Need to fill table using *ngFor and using information from spotify -->
