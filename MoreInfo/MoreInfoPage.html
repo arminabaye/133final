@@ -8,77 +8,92 @@
     <script src="MoreInfoScript.js"></script>
 </head>
 <body>
-<h1 class="text-center pt-5">More Info</h1>
+<h1 class="text-center pt-5">{{SONG NAME}}</h1>
 <!-- Present Information from spotify API (Audio Features object) -->
 <!-- https://developer.spotify.com/documentation/web-api/reference/object-model/ -->
 
 <!-- Show information of song on card -->
 <div class="container-fluid pt-5">
-    <div class="card mx-auto" style="width: 50%;">
-        <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/91wCAOtIBAL._SL1500_.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <table class="table table-light table-striped table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Song Name</th>
-                        <th scope="col">Beats Per Minute</th>
-                        <th scope="col">Song Length</th>
-                        <th scope="col">Key</th>
-                    <!-- Key from API presented as type Int, use Pitch class notation to convert to musical key (str)-->
-                        <th scope="col">Artist</th>
-                        <th scope="col">More Data</th>
-                    <!-- More data button with href to MoreInfoPage -->
-                    </tr>
-                </thead>
-                <!-- Need to fill table using *ngFor and using information from spotify -->
-            </table>
-            <a href="#" class="btn btn-primary">Listen on Spotify</a>
+    <div class="row">
+        <div class="col">
+            <div class="card mx-auto" style="width: 75%;">
+                <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/91wCAOtIBAL._SL1500_.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{SONG NAME}}</h5>
+                    <table class="table table-light table-striped table-bordered table-hover">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Beats Per Minute</th>
+                            <th scope="col">Song Length</th>
+                            <th scope="col">Key</th>
+                            <!-- Key from API presented as type Int, use Pitch class notation to convert to musical key (str)-->
+                            <th scope="col">Artist</th>
+                            <th scope="col">More Data</th>
+                            <!-- More data button with href to MoreInfoPage -->
+                        </tr>
+                        </thead>
+                        <!-- Need to fill table using *ngFor and using information from spotify -->
+                    </table>
+                    <!--- Link to spotify track here -->
+                    <div class="col text-center">
+                        <a href="#" class="btn btn-primary btn-block">Listen on Spotify</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="container-fluid">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Valence</div>
+                </div>
+                <div class="progress pt-1">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Energy</div>
+                </div>
+                <div class="progress pt-1">
+                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Loudness</div>
+                </div>
+            </div>
+
+            <!-- Further Info: Instrumentalness, Energy, Loudness, Valence, preview_url -->
+            <!-- Need Getters in Spotify Service JS file for all of these -->
+
+            <!-- Progress bar showing this info-->
+
+
+            <!-- Reccomendations: https://developer.spotify.com/documentation/web-api/reference-beta/#endpoint-get-recommendations -->
+            <!-- Use api reference from link above to show reccomended songs that are similar to the searched track --, ex min_tempo == song.tempo -->
+
+
+            <!-- Reccomended Song Table w/ info -->
+
+            <div class="container-fluid pt-5">
+                <h1 class="text-center pt-5 pb-3">Related Tracks</h1>
+                <div class="row pl-2">
+                    <!--Quick Data of Song (BPM, Length, etc) displayed as a table -->
+                    <table class="table table-light table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Song Name</th>
+                            <th scope="col">Beats Per Minute</th>
+                            <th scope="col">Song Length</th>
+                            <th scope="col">Key</th>
+                            <!-- Key from API presented as type Int, use Pitch class notation to convert to musical key (str)-->
+                            <th scope="col">Artist</th>
+                            <th scope="col">More Data</th>
+                            <!-- More data button with href to MoreInfoPage -->
+                        </tr>
+                        </thead>
+                        <!-- Need to fill table using *ngFor and using information from spotify -->
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Further Info: Instrumentalness, Energy, Loudness, Valence, preview_url -->
-<!-- Need Getters in Spotify Service JS file for all of these -->
-
-<!-- Progress bar showing this info-->
-<div class="container-fluid pt-5 w-75">
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Valence</div>
-    </div>
-    <div class="progress pt-1">
-        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Energy</div>
-    </div>
-    <div class="progress pt-1">
-        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Loudness</div>
-    </div>
-</div>
-
-<!-- Reccomendations: https://developer.spotify.com/documentation/web-api/reference-beta/#endpoint-get-recommendations -->
-<!-- Use api reference from link above to show reccomended songs that are similar to the searched track --, ex min_tempo == song.tempo -->
 
 
-<!-- Reccomended Song Table w/ info -->
-<div class="container-fluid pt-5 w-75">
-    <div class="row pl-2">
-        <!--Quick Data of Song (BPM, Length, etc) displayed as a table -->
-        <table class="table table-light table-striped table-bordered table-hover">
-            <thead>
-            <tr>
-                <th scope="col">Song Name</th>
-                <th scope="col">Beats Per Minute</th>
-                <th scope="col">Song Length</th>
-                <th scope="col">Key</th>
-                <!-- Key from API presented as type Int, use Pitch class notation to convert to musical key (str)-->
-                <th scope="col">Artist</th>
-                <th scope="col">More Data</th>
-                <!-- More data button with href to MoreInfoPage -->
-            </tr>
-            </thead>
-            <!-- Need to fill table using *ngFor and using information from spotify -->
-        </table>
-    </div>
-</div>
 
 
 </body>
